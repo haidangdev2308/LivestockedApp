@@ -1,6 +1,9 @@
 import { Text, StyleSheet, View, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import React, { Component } from 'react'
 import { colors, styleSheets } from '../../constants'
+import { WebView } from 'react-native-webview';
+import { useNavigation, useRoute } from '@react-navigation/native'
+
 import {
     EvilIcons,
     MaterialCommunityIcons,
@@ -8,14 +11,25 @@ import {
     FontAwesome6
 } from '@expo/vector-icons';
 
-export default class HomeScreen extends Component {
+class HomeScreen extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
         }
     }
+
+    handleNavigation = () => {
+        const { navigation } = this.props;
+        navigation.navigate('EDiagnosticsScreen'); // Thay 'DestinationScreen' bằng tên màn hình bạn muốn điều hướng đến
+    };
+
+
     render() {
+
+        // const nav = useNavigation()
+        // const route = useRoute() 
+
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <View style={styles.headerHome}>
@@ -33,7 +47,7 @@ export default class HomeScreen extends Component {
                     <View style={styleSheets.itemContent}>
                         <FontAwesome6 style={{ marginRight: 10 }} name="heart-circle-exclamation" size={20} color="white" />
                         <Text style={{ color: 'white', fontSize: 16, fontWeight: '700', flex: 1 }}>Chẩn đoán bệnh</Text>
-                        <TouchableOpacity style={{ paddingHorizontal: 14 }}>
+                        <TouchableOpacity onPress={() => this.handleNavigation()} style={{ paddingHorizontal: 14 }}>
                             <Feather name="arrow-right-circle" size={26} color="white" />
                         </TouchableOpacity>
                     </View>
@@ -59,3 +73,10 @@ const styles = StyleSheet.create({
         borderBottomColor: colors.borderYellow,
     },
 })
+
+// Wrap and export
+export default function (props) {
+    const navigation = useNavigation();
+  
+    return <HomeScreen {...props} navigation={navigation} />;
+  }

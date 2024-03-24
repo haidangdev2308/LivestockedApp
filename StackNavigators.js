@@ -14,6 +14,7 @@ import HomeScreen from './screens/homeScreen/HomeScreen'
 import ProfileScreen from './screens/profileScreen/ProfileScreen'
 import PigManageScreen from './screens/pigManageScreen/PigManageScreen'
 import NotificationScreen from './screens/notificationScreen/NotificationScreen'
+import EDiagnosticsScreen from './screens/eDiagnostics/EDiagnosticsScreen'
 
 export default class StackNavigator extends Component {
     render() {
@@ -86,6 +87,7 @@ export default class StackNavigator extends Component {
             <NavigationContainer>
                 <stack.Navigator initialRouteName='Main' screenOptions={{ headerShown: false }}>
                     <stack.Screen name={'Main'} component={BottomTab} />
+                    <stack.Screen name={'EDiagnosticsScreen'} component={EDiagnosticsScreen} />
                 </stack.Navigator>
             </NavigationContainer>
         )
