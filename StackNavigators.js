@@ -35,40 +35,48 @@ export default class StackNavigator extends Component {
         const BottomTab = () => {
             return <tab.Navigator screenOptions={screenOptions}>
                 <tab.Screen name='Home' component={HomeScreen} options={{
-                    tabBarLabel: 'Trang chủ',
+                    tabBarLabel: ({ focused }) =>
+                    focused ? <Text style={{fontSize: 11, fontWeight: '600'}}>Trang chủ</Text>
+                        : null,
                     tabBarLabelStyle: {
                         fontWeight: 500
                     },
                     tabBarIcon: ({ focused }) =>
-                        focused ? <Ionicons name="home" size={28} color={colors.primary} />
+                        focused ? <Ionicons name="home" size={35} color={colors.primary} />
                             : <Ionicons name="home-outline" size={28} color="black" />
                 }}
                 />
                 <tab.Screen name='PigManage' component={PigManageScreen} options={{
-                    tabBarLabel: 'Lợn',
+                    tabBarLabel: ({ focused }) =>
+                    focused ? <Text style={{fontSize: 11, fontWeight: '600'}}>Lợn</Text>
+                        : null,
                     tabBarLabelStyle: {
                         fontWeight: 500
                     },
                     tabBarIcon: ({ focused }) =>
-                    focused ? <MaterialCommunityIcons name="pig-variant" size={28} color={colors.primary} />
+                    focused ? <MaterialCommunityIcons name="pig-variant" size={35} color={colors.primary} />
                     : <MaterialCommunityIcons name="pig-variant-outline" size={28} color="black" />
                 }} />
                 <tab.Screen name='Notification' component={NotificationScreen} options={{
-                    tabBarLabel: 'Thông báo',
+                    tabBarLabel: ({ focused }) =>
+                    focused ? <Text style={{fontSize: 11, fontWeight: '600'}}>Thông báo</Text>
+                        : null,
                     tabBarLabelStyle: {
                         fontWeight: 500
                     },
                     tabBarIcon: ({ focused }) =>
-                        focused ? <Ionicons name="notifications-sharp" size={28} color={colors.primary} />
+                        focused ? <Ionicons name="notifications-sharp" size={35} color={colors.primary} />
                             : <Ionicons name="notifications-outline" size={28} color="black" />
                 }} />
                 <tab.Screen name='Profile' component={ProfileScreen} options={{
-                    tabBarLabel: 'Cá nhân',
+                    tabBarLabel: ({ focused }) =>
+                    focused ? <Text style={{fontSize: 11, fontWeight: '600'}}>Cá nhân</Text>
+                        : null,
                     tabBarLabelStyle: {
                         fontWeight: 500
                     },
                     tabBarIcon: ({ focused }) =>
-                        focused ? <Ionicons name="person" size={28} color={colors.primary} />
+                        focused ? <Ionicons name="person" size={35} color={colors.primary} />
                             : <Ionicons name="person-outline" size={28} color="black" />
                 }} />
             </tab.Navigator>
